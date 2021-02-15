@@ -7,6 +7,8 @@
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+a.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: $teal;
 }
