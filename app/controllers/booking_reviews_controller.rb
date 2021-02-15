@@ -1,0 +1,2 @@
+class BookingReviewsController < ApplicationController
+end
