@@ -10,10 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_15_163939) do
+ActiveRecord::Schema.define(version: 2021_02_15_165537) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "booking_reviews", force: :cascade do |t|
+    t.bigint "booking_id", null: false
+    t.string "cat_comment"
+    t.integer "cat_rating"
+    t.string "owner_comment"
+    t.integer "owner_rating"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["booking_id"], name: "index_booking_reviews_on_booking_id"
+  end
+
+  create_table "bookings", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "cat_id", null: false
+    t.date "start_date"
+    t.integer "number_of_half_days"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["cat_id"], name: "index_bookings_on_cat_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
 
   create_table "cats", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -52,5 +74,8 @@ ActiveRecord::Schema.define(version: 2021_02_15_163939) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "booking_reviews", "bookings"
+  add_foreign_key "bookings", "cats"
+  add_foreign_key "bookings", "users"
   add_foreign_key "cats", "users"
 end
