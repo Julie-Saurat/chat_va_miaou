@@ -1,9 +1,23 @@
 <div class="wrapper gradient">
+  <div class="cats-btn">
+    <div class="home-form my-2">
+      <%= link_to "Découvrez nos boules de poils !", cats_path, class: "btn btn-success", id: "discover-cats" %>
+    </div>
+  </div>
+  <div class="align-items-center">
+    <p class="catch-phrase mt-5">L'hiver qui dure, le confinement qui s'éternise, le soleil qui se cache... Découvrez la calinothérapie avec les petits chats près de chez vous.</p>
+    <%= image_tag "yarn-cat-no-bg.png", alt: "Chat va miaou", width: 400 %>
+  </div>
+</div>
+
+<%# <div class="wrapper gradient">
   <div class="row">
     <div class="col-8 mx-auto">
-     <div class="home-form bg-warning my-2">
-      Placeholder formulaire de recherche date et ville
-     </div>
+      <div class="home-form my-2">
+        <%= link_to "Découvrez nos boules de poils !", cats_path, class: "btn btn-success" %>
+      <%# <div class="home-form bg-warning my-2"> %>
+        <%# Placeholder formulaire de recherche date et ville %>
+      <%# </div>
     </div>
   </div>
   <div class="row align-items-center">
@@ -13,7 +27,7 @@
     </div>
     <div class="col-5">
       <%= image_tag "yarn-cat-no-bg.png", alt: "Chat va miaou", width: 400 %>
-    </div>
+    <%# </div>
   </div>
-</div>
+</div> %> 
 
