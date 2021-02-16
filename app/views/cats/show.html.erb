@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="cat-photos">
+        <%= cl_image_tag @cat.photos.first %>
+        <% if @cat.photos.count > 1 %>
+          <%= cl_image_tag @cat.photos[1] %>
+        <% end %>
+      </div>
+      <div class="cat-info">
+
+      </div>
+    </div>
+    <div class="col">
+      <div class="owner-info">
+
+      </div>
+      <div class="booking">
+
+      </div>
+    </div>
+  </div>
+</div>

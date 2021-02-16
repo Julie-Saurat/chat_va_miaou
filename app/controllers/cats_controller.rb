@@ -2,6 +2,7 @@ class CatsController < ApplicationController
 before_action :set_cat, only: [:show, :edit, :update, :destroy]
 
   def show
+    authorize @cat
   end
 
   private
