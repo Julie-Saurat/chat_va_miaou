@@ -17,7 +17,7 @@ BookingReview.destroy_all
 puts "creating users"
 users = []
 3.times do
-  users.push(User.create!(
+  new_user = User.create!(
     email: Faker::Internet.email,
     username: Faker::Internet.username,
     first_name: Faker::Name.first_name,
@@ -26,13 +26,15 @@ users = []
     address: ["Paris", "Bordeaux", "Lyon", "Toulouse", "Lille", "Marseille", "Brest", "Strasbourg", "Cucuron"].sample,
     phone_number: Faker::PhoneNumber.cell_phone,
     description: Faker::Lorem.paragraph
-  ))
+  )
+  new_user.photo.attach(io: File.open("app/assets/images/yarn-cat-no-bg.png"), filename: "photo-cat")
+  users.push(new_user)
 end
 
 puts "creating cats"
 cats = []
 5.times do
-  cats.push(Cat.create!(
+  new_cat = Cat.create!(
   name: Faker::Creature::Cat.name,
   age: rand(1..10),
   gender: ["male", "femelle"].sample,
@@ -45,8 +47,10 @@ cats = []
   price_per_half_day: rand(10..50),
   city: ["Paris", "Bordeaux", "Lyon", "Toulouse", "Lille", "Marseille", "Brest", "Strasbourg", "Cucuron"].sample,
   tag: ["calin", "calme", "ronronneur", "espiègle", "gratouilleur", "bavard"].sample,
-  user: users.sample
-  ))
+  user: users.sample)
+  photo_path = "app/assets/images/#{["blue-cat", "pink-cat"].sample}.png"
+  2.times { new_cat.photos.attach(io: File.open(photo_path), filename: "photo-cat") }
+  cats.push(new_cat)
 end
 
 puts "creating bookings"
