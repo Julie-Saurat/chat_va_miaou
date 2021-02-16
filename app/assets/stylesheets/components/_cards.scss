@@ -38,7 +38,6 @@
   padding-bottom: 4px;
 }
 
-
 .card-cat-infos .pricing {
   position: absolute;
   right: 16px;
@@ -68,6 +67,33 @@
 }
 
 .paw {
-  text-align: right;
   padding-top: 8px;
+  width: 100%;
+  text-align: right;
+}
+
+.cat-description {
+  height: 60px;
+  width: 100%;
+}
+
+.card-content {
+  width: 100%;
+}
+
+.card-link-show:hover {
+  text-decoration: none;
+  h2 {
+    text-decoration: none;
+    color: $teal;
+  }
+}
+
+.card-link-show {
+  text-decoration: none;
+  color: $gray;
+  h2 {
+    text-decoration: none;
+    color: $gray;
+  }
 }
