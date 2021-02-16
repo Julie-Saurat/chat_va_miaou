@@ -1,0 +1,11 @@
+<div class="index-container d-flex mx-6">
+  <div class="container col-8 container-cats">
+    <%@cats.each do |cat| %>
+      <%= link_to cat_path(cat), class: "card-link-show" do %>
+        <%= render "components/cats_card", cat: cat %>
+      <% end %>
+    <% end %>
+
+  </div>
+  <div class="map-container col-4"></div>
+</div>
