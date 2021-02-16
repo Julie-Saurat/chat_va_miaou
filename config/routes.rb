@@ -3,9 +3,16 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :cats do
-    resources :bookings, only: [:new, :create, :index] do
-      resources :booking_reviews, only: [:new, :create]
-    end
+    resources :bookings, only: [:new, :create]
   end
+    
+  resources :bookings, only: [:index] do
+    collection do
+      patch :validate
+    end
+    resources :booking_reviews, only: [:new, :create]
+  end
+ 
+  get "/dashboard", to: "dashboard#index"
 
 end
