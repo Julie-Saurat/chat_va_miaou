@@ -3,28 +3,28 @@
     <i class="fas fa-long-arrow-alt-left align-self-center text-primary mr-2"></i><%= link_to "Retourner aux résultats", request.referer.present? ? request.referer : root_path %>
   </div>
   <div class="row">
-    <div class="col">
+    <div class="col-12 col-md-6">
       <div class="cat-photos">
         <%= cl_image_tag @cat.photos.first.key , class: "main-photo" %>
         <% if @cat.photos.count > 1 %>
           <%= cl_image_tag @cat.photos[1].key , class: "second-photo" %>
         <% end %>
       </div>
-      <div class="cat-info">
-        <div class="row mb-2">
-          <div class="col-8">
-            <h3><strong><%= "#{@cat.name} " %></strong><%= "(#{@cat.tag})" %></h3>
-          </div>
-          <div class="col-4">
-            <div class="paw">
-              <i class="fas fa-paw"></i>
-              <i class="fas fa-paw"></i>
-              <i class="fas fa-paw"></i>
-              <i class="fas fa-paw"></i>
-              <i class="fas fa-paw"></i>
-            </div>
+      <div class="row mb-2">
+        <div class="col-8">
+          <h3><strong><%= "#{@cat.name} " %></strong><%= "(#{@cat.tag})" %></h3>
+        </div>
+        <div class="col-4">
+          <div class="paw">
+            <i class="fas fa-paw"></i>
+            <i class="fas fa-paw"></i>
+            <i class="fas fa-paw"></i>
+            <i class="fas fa-paw"></i>
+            <i class="fas fa-paw"></i>
           </div>
         </div>
+      </div>
+      <div class="cat-info">
         <div class="row">
           <div class="col">
            <ul>
@@ -43,7 +43,7 @@
         </div>
       </div>
     </div>
-    <div class="col ml-4">
+    <div class="col-12 col-md-6">
       <div class="owner-info">
         <p class="mb-0">Ce chat appartient à :</p>
         <div class="owner d-flex justify-content-between">
