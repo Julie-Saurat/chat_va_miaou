@@ -1,0 +1,24 @@
+.cat-info .paw {
+  font-size: 1.5rem;
+}
+
+.star {
+  display: inline;
+}
+
+.second-photo {
+  height: 150px;
+  widows: 150px;
+  border: 1rem solid white;
+  position: absolute;
+  bottom: 165px;
+  right: -35px;
+}
+
+.main-photo {
+  position: relative;
+  height: 40vh;
+  width: 45vw;
+  object-fit: cover;
+  margin-bottom: 3rem;
+}

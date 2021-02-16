@@ -1,22 +1,61 @@
 <div class="container">
   <div class="row">
+    <i class="fas fa-long-arrow-alt-left"></i><%= link_to "Retourner aux résultats", request.referer.present? ? request.referer : root_path %>
+  </div>
+  <div class="row">
     <div class="col">
       <div class="cat-photos">
-        <%= cl_image_tag @cat.photos.first.key %>
+        <%= cl_image_tag @cat.photos.first.key , class: "main-photo" %>
         <% if @cat.photos.count > 1 %>
-          <%= cl_image_tag @cat.photos[1].key %>
+          <%= cl_image_tag @cat.photos[1].key , class: "second-photo" %>
         <% end %>
       </div>
       <div class="cat-info">
-        <h1><strong><%= "#{@cat.name}" %></strong><%= "(#{@cat.tag})" %></h1>
-        <div class="cat-rating">
-
+        <div class="row">
+          <div class="col-8">
+            <h3><strong><%= "#{@cat.name} " %></strong><%= "(#{@cat.tag})" %></h3>
+          </div>
+          <div class="col-4">
+            <div class="paw">
+              <i class="fas fa-paw"></i>
+              <i class="fas fa-paw"></i>
+              <i class="fas fa-paw"></i>
+              <i class="fas fa-paw"></i>
+              <i class="fas fa-paw"></i>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+           <ul>
+             <li><strong>Sexe : </strong><%= @cat.gender %></li>
+             <li><strong>Age : </strong><%= "#{@cat.age} an(s)" %></li>
+             <li><strong>Pelage : </strong><%= "#{@cat.color}, poil #{@cat.hair_length}"%></li>
+           </ul>
+          </div>
+          <div class="col">
+           <ul>
+             <li><strong>Castré : </strong><%= @cat.neutered == true ? "oui" : "non" %></li>
+             <li><strong>Régime : </strong><%= @cat.diet %></li>
+             <li><strong>Race : </strong><%= @cat.breed %></li>
+           </ul>
+          </div>
         </div>
       </div>
     </div>
     <div class="col">
       <div class="owner-info">
-
+        <div class="owner d-flex justify-content-between">
+          <h3>Propriétaire : <%= @cat.user.first_name %></h3>
+          <div class="star align-self-top">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+        </div>
+        <h3>à <%= @cat.city %></h3>
       </div>
       <div class="booking">
 
