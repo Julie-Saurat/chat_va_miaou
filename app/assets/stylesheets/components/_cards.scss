@@ -1,39 +1,69 @@
-.card-trip {
+.map-container {
+  background-color: pink;
+}
+
+.card-cat {
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 9px;
 }
 
-.card-trip > img {
+.card-cat > img {
   height: 200px;
   width: 100%;
   object-fit: cover;
 }
 
-.card-trip h2 {
+.card-cat h2 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
 }
 
-.card-trip p {
+.card-cat p {
   font-size: 12px;
   opacity: .7;
   margin: 0;
 }
 
-
-.card-trip .card-trip-infos {
-  padding: 16px;
+.card-cat .card-cat-infos {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   position: relative;
+  padding-top: 16px;
+  padding-bottom: 13px;
 }
 
-.card-trip-infos .card-trip-user {
+
+.card-cat-infos .pricing {
   position: absolute;
   right: 16px;
-  top: -20px;
-  width: 40px;
+  top: -13px;
+  width: 118px;
+  height: 26px;
+
+}
+
+.fa-paw {
+  padding: 2px;
+}
+
+.pricing {
+  background-color: white;
+  border-radius: 10px;
+  width: 111px;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 3px;
+}
+
+.half-day {
+  font-size: 10px;
+}
+
+.paw {
+  text-align: right;
+  padding-top: 15px;
 }
