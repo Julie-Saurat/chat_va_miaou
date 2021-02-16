@@ -1,0 +1,66 @@
+<div class="container bg-white my-3 p-4 rounded shadow">
+  <div class="row go-back mb-2">
+    <i class="fas fa-long-arrow-alt-left align-self-center text-primary mr-2"></i><%= link_to "Retourner aux résultats", request.referer.present? ? request.referer : root_path %>
+  </div>
+  <div class="row">
+    <div class="col-12 col-md-6">
+      <div class="cat-photos">
+        <%= cl_image_tag @cat.photos.first.key , class: "main-photo" %>
+        <% if @cat.photos.count > 1 %>
+          <%= cl_image_tag @cat.photos[1].key , class: "second-photo" %>
+        <% end %>
+      </div>
+      <div class="row mb-2">
+        <div class="col-8">
+          <h3><strong><%= "#{@cat.name} " %></strong><%= "(#{@cat.tag})" %></h3>
+        </div>
+        <div class="col-4">
+          <div class="paw">
+            <i class="fas fa-paw"></i>
+            <i class="fas fa-paw"></i>
+            <i class="fas fa-paw"></i>
+            <i class="fas fa-paw"></i>
+            <i class="fas fa-paw"></i>
+          </div>
+        </div>
+      </div>
+      <div class="cat-info">
+        <div class="row">
+          <div class="col">
+           <ul>
+             <li><strong>Sexe : </strong><%= @cat.gender %></li>
+             <li><strong>Age : </strong><%= "#{@cat.age} an(s)" %></li>
+             <li><strong>Pelage : </strong><%= "#{@cat.color}, poil #{@cat.hair_length}"%></li>
+           </ul>
+          </div>
+          <div class="col">
+           <ul>
+             <li><strong>Castré : </strong><%= @cat.neutered == true ? "oui" : "non" %></li>
+             <li><strong>Régime : </strong><%= @cat.diet %></li>
+             <li><strong>Race : </strong><%= @cat.breed %></li>
+           </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="owner-info">
+        <p class="mb-0">Ce chat appartient à :</p>
+        <div class="owner d-flex justify-content-between">
+          <h3><%= @cat.user.first_name %></h3>
+          <div class="star align-self-top">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+        </div>
+        <p>Vous pourrez le récupérer à <%= @cat.city %>.</p>
+      </div>
+      <div class="booking">
+
+      </div>
+    </div>
+  </div>
+</div>

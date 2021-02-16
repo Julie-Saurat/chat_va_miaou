@@ -1,0 +1,31 @@
+.cat-info .fa-paw {
+  font-size: 1.3rem;
+  i {
+    margin: 0 -3px;
+  }
+}
+
+.star {
+  display: inline;
+  font-size: 1rem;
+}
+
+.cat-photos {
+  position: relative;
+
+}
+
+.second-photo {
+  width: 32%;
+  outline: 0.5rem solid white;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  object-fit: cover;
+}
+.main-photo {
+  height: 40vh;
+  width: 95%;
+  object-fit: cover;
+  margin-bottom: 3vh;
+}
