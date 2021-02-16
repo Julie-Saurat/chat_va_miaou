@@ -4,12 +4,44 @@
   height: 100vh;
 }
 
+.wrapper.gradient {
+  display: flex;
+  flex-direction: column;
+  padding: 3% 0 0 0;
+}
+
+.cats-btn {
+  margin: 1% 10% 5% 10%;
+  display: flex;
+  justify-content: center; 
+}
+
+#discover-cats {
+  height: 100px;
+  width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: white;
+  :hover{
+    background-color: $red;
+  }
+}
+
+.align-items-center {
+  margin: 0 10%;
+  display: flex;
+  justify-content: space-between;
+}
+
 .catch-phrase {
   font-size: 2.5rem;
   font-weight: 300;
   line-height: 1em;
 }
 
-.home-form {
-  height: 80px;
-}
+// .home-form {
+//   height: 100%;
+// }
