@@ -1,10 +1,14 @@
 class CatsController < ApplicationController
-before_action :set_cat, only: [:show, :edit, :update, :destroy]
+before_action :set_cat, only: [:show]
 
   def show
     authorize @cat
   end
 
+  def index
+    @cats = policy_scope(Cat)
+  end
+  
   private
 
   def set_cat
