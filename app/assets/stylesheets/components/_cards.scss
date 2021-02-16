@@ -1,0 +1,73 @@
+.map-container {
+  background-color: pink;
+}
+
+.card-cat {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 9px;
+  border-radius: 5px;
+}
+
+.card-cat > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.card-cat h2 {
+  font-size: 21px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-cat p {
+  font-size: 14px;
+  opacity: .7;
+  margin-top: 7px;
+}
+
+.card-cat .card-cat-infos {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+  padding-top: 27px;
+  padding-bottom: 4px;
+}
+
+
+.card-cat-infos .pricing {
+  position: absolute;
+  right: 16px;
+  top: -13px;
+  width: 118px;
+  height: 26px;
+}
+
+.fa-paw {
+  padding: 2px;
+}
+
+.pricing {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 10px;
+  width: 111px;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 3px;
+}
+
+.half-day {
+  font-size: 10px;
+}
+
+.paw {
+  text-align: right;
+  padding-top: 8px;
+}
