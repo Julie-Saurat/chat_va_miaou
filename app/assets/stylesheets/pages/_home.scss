@@ -1,1 +1,15 @@
 // Specific CSS for your home-page
+.gradient {
+  background: linear-gradient($lightblue, $lightpink);
+  height: 100vh;
+}
+
+.catch-phrase {
+  font-size: 2.5rem;
+  font-weight: 300;
+  line-height: 1em;
+}
+
+.home-form {
+  height: 80px;
+}
