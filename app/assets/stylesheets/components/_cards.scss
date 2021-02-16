@@ -7,24 +7,26 @@
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   padding: 9px;
+  border-radius: 5px;
 }
 
 .card-cat > img {
   height: 200px;
   width: 100%;
   object-fit: cover;
+  border-radius: 5px;
 }
 
 .card-cat h2 {
-  font-size: 16px;
+  font-size: 21px;
   font-weight: bold;
   margin: 0;
 }
 
 .card-cat p {
-  font-size: 12px;
+  font-size: 14px;
   opacity: .7;
-  margin: 0;
+  margin-top: 7px;
 }
 
 .card-cat .card-cat-infos {
@@ -32,8 +34,8 @@
   justify-content: space-between;
   align-items: flex-end;
   position: relative;
-  padding-top: 16px;
-  padding-bottom: 13px;
+  padding-top: 27px;
+  padding-bottom: 4px;
 }
 
 
@@ -43,7 +45,6 @@
   top: -13px;
   width: 118px;
   height: 26px;
-
 }
 
 .fa-paw {
@@ -51,6 +52,9 @@
 }
 
 .pricing {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: white;
   border-radius: 10px;
   width: 111px;
@@ -65,5 +69,5 @@
 
 .paw {
   text-align: right;
-  padding-top: 15px;
+  padding-top: 8px;
 }
