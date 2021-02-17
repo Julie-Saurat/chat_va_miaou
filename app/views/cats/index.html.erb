@@ -1,3 +1,8 @@
+<div class="mt-2">
+  <%= simple_form_for :search, url: root_path, method: "GET" do |f| %>
+    <%= f.input :name, required: false, label: false, input_html: {value: "", placeholder: "Try searching for a cocktail: e.g. Mojito",  id: 'search-bar' } %>
+  <% end %>
+</div>
 <div class="index-container d-flex mx-6">
   <div class="container col-8 container-cats">
     <%@cats.each do |cat| %>

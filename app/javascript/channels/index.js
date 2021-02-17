@@ -3,3 +3,10 @@
 
 const channels = require.context('.', true, /_channel\.js$/)
 channels.keys().forEach(channels)
+
+import { searchCards } from '../components/search';
+
+document.addEventListener('turbolinks:load', () => {
+  // Call your JS functions here
+  searchCards();
+});
