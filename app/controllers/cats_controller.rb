@@ -4,15 +4,33 @@ class CatsController < ApplicationController
 
   def show
     authorize @cat
+    @booking = Booking.new
   end
 
   def index
     @cats = policy_scope(Cat)
   end
-  
+
+  def new
+    @cat = Cat.new
+    authorize @cat
+  end
+
+  def create
+    @cat = Cat.new(cat_params)
+    authorize @cat
+    @cat.user = current_user
+    @cat.save
+    redirect_to cat_path(@cat)
+  end
+
   private
 
   def set_cat
     @cat = Cat.find(params[:id])
+  end
+
+  def cat_params
+    params.require(:cat).permit(:name, :age, :gender, :neutered, :description, :color, :diet, :hair_length, :breed, :price_per_half_day, :city, :tag, photos: [])
   end
 end

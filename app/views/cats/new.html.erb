@@ -1,0 +1,22 @@
+<div class="container-cat">  
+  <h2>Ajoutez votre chat !</h2>
+
+  <%= simple_form_for(@cat) do |f| %>
+    <%= f.input :name, label: "Nom" %>
+    <%= f.input :age %>
+    <%= f.input :gender, label: "Sexe", as: :radio_buttons, collection: ["mâle", "femelle"] %>
+    <%= f.input :neutered, label: "Castré(e) ?", as: :radio_buttons, collection: ["oui", "non"]  %>
+    <%= f.input :description %>
+    <%= f.input :color, label: "Couleur de pelage" %>
+    <%= f.input :diet, label: "Régime alimentaire" %>
+    <%= f.input :hair_length, label: "Pelage", collection: ["court", "medium", "long"] %>
+    <%= f.input :breed, label: "Race" %>
+    <%= f.input :price_per_half_day, label: "Prix par demi-journée (en €)" %>
+    <%= f.input :city, label: "Ville" %>
+    <%= f.input :tag, label: "Un mot pour définir votre chat", collection: ["calin", "calme", "ronronneur", "espiègle", "gratouilleur", "bavard"] %>
+    <%= f.input :photos, label: "Postez 1 ou 2 photos", as: :file, input_html: { multiple: true } %>
+    <div class="form-actions btn btn-warning">
+      <%= f.button :submit, "Ajouter" %>
+    </div>
+  <% end %>  
+</div>
