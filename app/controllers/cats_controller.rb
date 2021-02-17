@@ -1,5 +1,6 @@
 class CatsController < ApplicationController
-before_action :set_cat, only: [:show]
+  skip_before_action :authenticate_user!, only: [:index, :show]
+  before_action :set_cat, only: [:show]
 
   def show
     authorize @cat
