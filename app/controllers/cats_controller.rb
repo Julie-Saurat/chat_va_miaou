@@ -4,6 +4,7 @@ class CatsController < ApplicationController
 
   def show
     authorize @cat
+    @booking = Booking.new
   end
 
   def index
