@@ -7,14 +7,19 @@
             <div class="cat-description">
               <p><%= cat.description %></p>
             </div>
-            <div class="paw">
-              <i class="fas fa-paw"></i>
-              <i class="fas fa-paw"></i>
-              <i class="fas fa-paw"></i>
-              <i class="fas fa-paw"></i>
-              <i class="fas fa-paw"></i>
+            <div class="cat-info d-flex align-items-baseline">
+              <div>
+                <%= cat.city %>
+              </div>
+              <div class="paw">
+                <i class="fas fa-paw"></i>
+                <i class="fas fa-paw"></i>
+                <i class="fas fa-paw"></i>
+                <i class="fas fa-paw"></i>
+                <i class="fas fa-paw"></i>
+              </div>
             </div>
-          </div>
+            </div>
           <div class="pricing"><%= cat.price_per_half_day %>€ <span class="half-day"> / demi journée </span></div>
         </div>
       </div>

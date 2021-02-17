@@ -7,8 +7,15 @@ before_action :set_cat, only: [:show]
 
   def index
     @cats = policy_scope(Cat)
+
+    @markers = @cats.geocoded.map do |cat|
+      {
+        lat: cat.latitude,
+        lng: cat.longitude
+      }
+    end
   end
-  
+
   private
 
   def set_cat
