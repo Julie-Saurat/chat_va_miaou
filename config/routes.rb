@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create]
   end
     
-  resources :bookings, only: [:index] do
+  resources :bookings, only: [:index, :create] do
     collection do
       patch :validate
     end
