@@ -1,7 +1,6 @@
 class DashboardController < ApplicationController
 
   def index
-    @cat = "youhou"
     @cats = policy_scope(Cat)
 
     
