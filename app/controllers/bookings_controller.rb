@@ -19,6 +19,6 @@ end
 private
 
   def booking_params
-    params.require(:booking).permit(:start_date, :number_of_half_days)
+    params.require(:booking).permit(:start_date, :number_of_half_days, :commitment)
   end
 end
