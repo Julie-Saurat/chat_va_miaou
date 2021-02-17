@@ -8,4 +8,13 @@ class CatPolicy < ApplicationPolicy
   def show?
     true
   end
+
+  def create?
+    user
+  end
+
+  def new?
+    create?
+  end
+
 end
