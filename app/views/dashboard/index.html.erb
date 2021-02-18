@@ -21,7 +21,7 @@
           </ul>
         <% end %>
       </div>
-      <div>
+      <div class= "card-box">
         <h3>Vos réservation de chat</h3>
         <% if @user_reservations.any? %>
           <ul>
@@ -64,28 +64,25 @@
       <h3>Vos chats</h3>
       <% if @owner_cats %>
         <ul>
-          <% @owner_cat_reservations.each do |booking| %>
+          <% @owner_cats.each do |cat| %>
             <div class="presentation-cat-card">
-              <li>Le locataire: <%= booking.user.username %></li>
-              <li>Le locataire_description: <%= booking.user.description %></li>
-              <li>Le locataire_tel: <%= booking.user.phone_number %></li>
-              <li>Le minou : <%= booking.cat.name %></li>
-              <li>Date de début :<%= booking.start_date %></li>
-              <li>nombre de demi-journées : <%= booking.number_of_half_days %></li>
+              <li>les infos du chat</li>
+              <%= link_to edit_cat_path(cat), class:"btn btn-success", id: "edit-cats" do %>
+                Edit-fontawsone
+              <% end %>
+              <%= link_to cat_path(cat), class:"btn btn-outline-success", id: "delete-cats" do %>
+                delete
+              <% end %>
               --------------
             </div>
           <% end %>
         </ul>
-        <div class="presentation-cat-card">
-          <div class="home-form my-2">
-            <%= link_to "Ajouter un chat !", new_cat_path, class: "btn btn-success", id: "discover-cats" %>
-          </div>
+        <div class="home-form my-2">
+          <%= link_to "Ajouter un chat !", new_cat_path, class: "btn btn-success", id: "discover-cats" %>
         </div>
       <% else %>
-        <div class="presentation-cat-card">
-          <div class="home-form my-2">
-            <%= link_to "Ajouter un chat !", new_cat_path, class: "btn btn-success", id: "discover-cats" %>
-          </div>
+        <div class="home-form my-2">
+          <%= link_to "Ajouter un chat !", new_cat_path, class: "btn btn-success", id: "discover-cats" %>
         </div>
       <% end %>
     </div>
