@@ -59,7 +59,12 @@
         <p>Vous pourrez le récupérer à <%= @cat.city %>.</p>
       </div>
       <div class="booking">
-        <%= render "components/booking", booking: @booking %>
+        <% if @cat.user == current_user  %>
+            <h3>Ce que les cat lovers pensent de <%= @cat.name %> :</h3>
+            <p>Personne n'a encore donné d'avis sur votre chat</p>
+        <% else%>
+          <%= render "components/booking", booking: @booking %>
+        <% end %>
       </div>
     </div>
   </div>
