@@ -26,16 +26,21 @@
         <div class="row">
           <div class="col">
            <ul>
-             <li><strong>Sexe : </strong><%= @cat.gender %></li>
-             <li><strong>Age : </strong><%= "#{@cat.age} an(s)" %></li>
-             <li><strong>Pelage : </strong><%= "#{@cat.color}, poil #{@cat.hair_length}"%></li>
+             <li><i class="fas fa-cat"></i><%= @cat.breed %>, <%= "#{@cat.color}, poil #{@cat.hair_length}"%></li>
+             <li><i class="fas fa-birthday-cake"></i><%= "#{@cat.age} an(s)" %></li>
            </ul>
           </div>
           <div class="col">
            <ul>
-             <li><strong>Castré : </strong><%= @cat.neutered == true ? "oui" : "non" %></li>
-             <li><strong>Régime : </strong><%= @cat.diet %></li>
-             <li><strong>Race : </strong><%= @cat.breed %></li>
+             <li>
+              <% if @cat.gender == "female" %>
+                <i class="fas fa-venus"></i>
+              <% else %>
+                <i class="fas fa-mars"></i>
+              <% end %>
+              <%= @cat.neutered == true ? "Castré(e)" : "Non castré(e)" %>
+            </li>
+             <li><i class="fas fa-utensils"></i><%= @cat.diet %></li>
            </ul>
           </div>
         </div>
