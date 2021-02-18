@@ -1,29 +1,33 @@
 <h2>vos bookings : <%= "#{current_user.username}" %></h2>
-<div class="container-dashboard">
+<div class="d-flex">
+  <div class="container-resa">
+  <%# <div class="row justify-content-evenly"> %>
     <% if current_user.cats.present? %>
-  <%# bookings recap for the user (owner) %>
-      <div class="container-cat">
+    <%# bookings recap for the user (owner) %>
+      <div class="dashboard-cards">
         <h3>Demandes de réservation pour vos chats</h3>
         <% if @owner_cat_reservations.any? %>
-          <ul>
+          <ul class="list">
             <% @owner_cat_reservations.each do |booking| %>
               <div class="reservation-card">
-                <li>Le locataire: <%= booking.user.username %></li>
-                <li>Le locataire_description: <%= booking.user.description %></li>
-                <li>Le locataire_tel: <%= booking.user.phone_number %></li>
-                <li>Le minou : <%= booking.cat.name %></li>
-                <li>Date de début :<%= booking.start_date %></li>
-                <li>nombre de demi-journées : <%= booking.number_of_half_days %></li>
-                --------------
+                <%= cl_image_tag booking.cat.photos.first.key , class: "dasboard-photo" %>
+                <div>
+                  <li>Le locataire: <%= booking.user.username %></li>
+                  <li>Le locataire_description: <%= booking.user.description %></li>
+                  <li>Le locataire_tel: <%= booking.user.phone_number %></li>
+                  <li>Le minou : <%= booking.cat.name %></li>
+                  <li>Date de début :<%= booking.start_date %></li>
+                  <li>nombre de demi-journées : <%= booking.number_of_half_days %></li>
+                </div>
               </div>
             <% end %>
           </ul>
         <% end %>
       </div>
-      <div class="container-cat">
+      <div class="dashboard-cards">
         <h3>Vos réservation de chat</h3>
         <% if @user_reservations.any? %>
-          <ul>
+          <ul class="list">
             <% @user_reservations.each do |booking| %>
               <div class="reservation-card">
                 <li>Le propiétaire : <%= booking.cat.user.username %></li>
@@ -38,10 +42,10 @@
         <% end %>
       </div>
     <% else %>
-      <div class="container-cat">
+      <div class="dashboard-cards">
         <h3>Vos réservation de chat</h3>
         <% if @user_reservations.any? %>
-          <ul>
+          <ul class="list">
             <% @user_reservations.each do |booking| %>
               <div class="reservation-card">
                 <li>Le propiétaire : <%= booking.cat.user.username %></li>
@@ -57,11 +61,10 @@
       </div>
     <% end %>
 
-  <div class="container-cat">
-    <div class= "card-box">
+    <div class="dashboard-cards">
       <h3>Vos chats</h3>
       <% if @owner_cats %>
-        <ul>
+        <ul class="list">
           <% @owner_cats.each do |cat| %>
             <div class="presentation-cat-card">
               <li>les infos du chat</li>
@@ -71,18 +74,17 @@
               <%= link_to cat_path(cat), class:"btn btn-outline-success", id: "delete-cats" do %>
                 delete
               <% end %>
-              --------------
             </div>
           <% end %>
         </ul>
         <div class="home-form my-2">
-          <%= link_to "Ajouter un chat !", new_cat_path, class: "btn btn-success", id: "discover-cats" %>
+          <%= link_to "Ajouter un chat !", new_cat_path, class: "btn btn-success" %>
         </div>
       <% else %>
         <div class="home-form my-2">
-          <%= link_to "Ajouter un chat !", new_cat_path, class: "btn btn-success", id: "discover-cats" %>
+          <%= link_to "Ajouter un chat !", new_cat_path, class: "btn btn-success" %>
         </div>
       <% end %>
     </div>
-  </div>
+  <%# </div> %>
 </div>
