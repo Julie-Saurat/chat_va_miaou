@@ -7,7 +7,7 @@ const flatPickr = () => {
   if (bookingForm) {
     flatpickr(bookingForm, {
       enableTime: true,
-      dateFormat: "Y-m-d H\\h00",
+      dateFormat: "d/m/Y H\\h00",
       minDate: "today",
       time_24hr: true,
       defaultDate: tomorrow(),
