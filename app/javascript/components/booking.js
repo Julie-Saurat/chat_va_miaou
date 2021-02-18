@@ -1,8 +1,11 @@
-// const element = document.getElementById(booking_start);
-// element.addEventListener('click', (event) => {
-//   if 
-//     console.log(`OK pour le paiement directement sur place auprès de ${@cat.name} à votre arrivée à ${booking_start} ?`);
-//   else
-//     console.log(`OK pour le paiement directement sur place auprès de ${@cat.name} à votre arrivée à ${booking_start} ?`);
-//   end
-// });
+ const changeBookingMessage = () => {
+  const element = document.querySelector("#booking_start_date");
+  element.addEventListener('change', (event) => {
+    const check = document.querySelector(".form-check-label.boolean.optional");
+    check.innerText = [check.innerText.slice(0, -1), `à ${element.value}`, " ?"].join('');
+  });
+};
+
+export {changeBookingMessage};
+ 
+ 
