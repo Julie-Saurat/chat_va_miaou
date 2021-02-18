@@ -60,8 +60,13 @@
       </div>
       <div class="booking">
         <% if @cat.user == current_user  %>
+          <div id="reviews-in-show">
             <h3>Ce que les cat lovers pensent de <%= @cat.name %> :</h3>
             <p>Personne n'a encore donné d'avis sur votre chat</p>
+          </div>
+          <div id="btn-edit">
+            <%= link_to "Modifier la fiche", edit_cat_path(@cat) %>
+          </div>
         <% else%>
           <%= render "components/booking", booking: @booking %>
         <% end %>
