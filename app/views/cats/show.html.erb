@@ -45,21 +45,22 @@
     </div>
     <div class="col-12 col-md-6">
       <div class="owner-info">
-        <p class="mb-0">Ce chat appartient à :</p>
-        <div class="owner d-flex justify-content-between">
-          <h3><%= @cat.user.first_name %></h3>
-          <div class="star align-self-top">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-          </div>
-        </div>
-        <p>Vous pourrez le récupérer à <%= @cat.city %>.</p>
+        <p class="mb-0"><i class="fas fa-user"></i> Ce chat appartient à <%= @cat.user.first_name %></p>
+        <p class="mb-0"><i class="fas fa-map-marker-alt"></i> Vous pourrez le récupérer à <%= @cat.city %></p>
+        <p class="mb-0" id="price" data-price-per-half-day="<%= @cat.price_per_half_day %>" ><i class="fas fa-euro-sign"></i> <%= @cat.price_per_half_day %> / demi-journée</p>
       </div>
-      <div class="booking">
-        <%= render "components/booking", booking: @booking %>
+      <div class="booking mt-2">
+        <% if policy(@cat).edit?  %>
+          <div id="reviews-in-show">
+            <h4>Ce que les cat lovers pensent de <%= @cat.name %> :</h4>
+            <p>Personne n'a encore donné d'avis sur votre chat</p>
+          </div>
+          <div id="btn-edit">
+            <%= link_to "Modifier la fiche", edit_cat_path(@cat) %>
+          </div>
+        <% else%>
+          <%= render "components/booking", booking: @booking %>
+        <% end %>
       </div>
     </div>
   </div>
