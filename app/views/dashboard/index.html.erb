@@ -1,6 +1,6 @@
 <h2>vos bookings : <%= "#{current_user.username}" %></h2>
 <div class="d-flex">
-  <div class="container-resa">
+  <div class="container-resa" data-controller="reservations">
     <% if current_user.cats.present? %>
     <%# bookings recap for the user (owner) %>
       <div class="dashboard-cards">
@@ -23,11 +23,12 @@
                   </div>
                   <%= cl_image_tag booking.cat.photos.first.key, class: "dasboard-photo" %>
                 </div>
-                <button type="button" class="btn btn-primary" id="open-modal">
+                <button type="button" class="btn btn-primary" id="open-modal" data-id=<%=booking.id%> data-reservations-target="button" data-action="click->reservations#show">
                   <i class="fas fa-plus"></i>
                 </button>
               </div>
-              <%= render "components/dashboard_modal", booking: booking %>
+              <div class="details-booking" data-reservations-target="description">
+              </div>
             <% end %>
           </ul>
         <% end %>
