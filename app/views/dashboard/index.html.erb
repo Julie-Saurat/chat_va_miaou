@@ -1,7 +1,6 @@
 <h2>vos bookings : <%= "#{current_user.username}" %></h2>
 <div class="d-flex">
   <div class="container-resa">
-  <%# <div class="row justify-content-evenly"> %>
     <% if current_user.cats.present? %>
     <%# bookings recap for the user (owner) %>
       <div class="dashboard-cards">
@@ -10,16 +9,25 @@
           <ul class="list">
             <% @owner_cat_reservations.each do |booking| %>
               <div class="reservation-card">
-                <%= cl_image_tag booking.cat.photos.first.key , class: "dasboard-photo" %>
-                <div>
-                  <li>Le locataire: <%= booking.user.username %></li>
-                  <li>Le locataire_description: <%= booking.user.description %></li>
-                  <li>Le locataire_tel: <%= booking.user.phone_number %></li>
-                  <li>Le minou : <%= booking.cat.name %></li>
-                  <li>Date de début :<%= booking.start_date %></li>
-                  <li>nombre de demi-journées : <%= booking.number_of_half_days %></li>
+                <div class="d-flex justify-content-between">
+                  <% if booking.user.photo.attached? %>
+                    <%= cl_image_tag booking.user.photo, class: "resa-avatar" %>
+                  <% end %>
+                  <div>
+                    <li>Le locataire: <%= booking.user.username %></li>
+                    <%# <li>Le locataire_description: <%= booking.user.description %></li> %>
+                    <%# <li>Le locataire_tel: <%= booking.user.phone_number %></li> %>
+                    <li>Le minou : <%= booking.cat.name %></li>
+                    <%# <li>Date de début :<%= booking.start_date %></li> %>
+                    <%# <li>nombre de demi-journées : <%= booking.number_of_half_days %></li> %>
+                  </div>
+                  <%= cl_image_tag booking.cat.photos.first.key, class: "dasboard-photo" %>
                 </div>
+                <button type="button" class="btn btn-primary" id="open-modal">
+                  <i class="fas fa-plus"></i>
+                </button>
               </div>
+              <%= render "components/dashboard_modal", booking: booking %>
             <% end %>
           </ul>
         <% end %>
@@ -30,12 +38,14 @@
           <ul class="list">
             <% @user_reservations.each do |booking| %>
               <div class="reservation-card">
-                <li>Le propiétaire : <%= booking.cat.user.username %></li>
-                <li>Le propiétaire_tel: <%= booking.cat.user.phone_number %></li>
-                <li>Le minou : <%= booking.cat.name %></li>
-                <li>Date de début :<%= booking.start_date %></li>
-                <li>nombre de demi-journées : <%= booking.number_of_half_days %></li>
-                --------------
+                <div>
+                  <li>Le propiétaire : <%= booking.cat.user.username %></li>
+                  <li>Le propiétaire_tel: <%= booking.cat.user.phone_number %></li>
+                  <li>Le minou : <%= booking.cat.name %></li>
+                  <li>Date de début :<%= booking.start_date %></li>
+                  <li>nombre de demi-journées : <%= booking.number_of_half_days %></li>
+                </div>
+                <%= cl_image_tag booking.cat.photos.first.key, class: "dasboard-photo" %>
               </div>
             <% end %>
           </ul>
@@ -86,5 +96,5 @@
         </div>
       <% end %>
     </div>
-  <%# </div> %>
+  </div>
 </div>

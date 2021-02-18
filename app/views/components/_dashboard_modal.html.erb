@@ -1,0 +1,6 @@
+<div class="details-booking">
+  <h2>Hello</h2>
+  <p>Le locataire_description: <%= booking.user.description %></p>
+  <p>Le locataire_tel: <%= booking.user.phone_number %></p>
+  <%= cl_image_tag booking.cat.photos.first.key, class: "dasboard-photo" %>
+</div>
