@@ -27,6 +27,7 @@ import "bootstrap";
 import { searchCards } from '../components/search';
 import { initMapbox } from '../plugins/init_mapbox';
 import { flatPickr } from "../plugins/flatpickr"
+import { updatePrice } from "../components/booking";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
@@ -36,4 +37,5 @@ document.addEventListener('turbolinks:load', () => {
   searchCards();
   initMapbox();
   flatPickr();
+  updatePrice();
 });
