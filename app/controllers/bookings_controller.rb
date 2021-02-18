@@ -10,8 +10,8 @@ class BookingsController < ApplicationController
     unless @booking.commitment
       flash[:alert] = "D'accord pour le paiement sur place à l'arrivée ?"
       render "cats/show" and return
-    end 
-    if        
+    end
+    if
       @booking.save!
       flash[:alert] = "Votre demande a bien été enregistrée. C'est maintenant au propriétaire de vous dire s'il l'accepte ou non"
       redirect_to cat_path(@cat)

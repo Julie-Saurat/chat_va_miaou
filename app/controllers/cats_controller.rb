@@ -1,6 +1,6 @@
 class CatsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
-  before_action :set_cat, only: [:show]
+  before_action :set_cat, only: [:show, :edit, :update]
 
   def show
     authorize @cat
@@ -28,6 +28,16 @@ class CatsController < ApplicationController
     authorize @cat
     @cat.user = current_user
     @cat.save
+    redirect_to cat_path(@cat)
+  end
+
+  def edit
+    authorize @cat
+  end
+
+  def update
+    @cat.update(cat_params)
+    authorize @cat
     redirect_to cat_path(@cat)
   end
 
