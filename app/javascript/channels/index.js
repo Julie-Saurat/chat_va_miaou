@@ -4,11 +4,9 @@
 const channels = require.context('.', true, /_channel\.js$/)
 channels.keys().forEach(channels)
 
-import { searchCards } from '../components/search';
-import { initMapbox } from '../plugins/init_mapbox';
+
 
 document.addEventListener('turbolinks:load', () => {
   // Call your JS functions here
-  searchCards();
-  initMapbox();
+
 });

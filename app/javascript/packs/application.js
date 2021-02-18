@@ -24,11 +24,16 @@ require("channels")
 
 // External imports
 import "bootstrap";
-
+import { searchCards } from '../components/search';
+import { initMapbox } from '../plugins/init_mapbox';
+import { flatPickr } from "../plugins/flatpickr"
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  searchCards();
+  initMapbox();
+  flatPickr();
 });
