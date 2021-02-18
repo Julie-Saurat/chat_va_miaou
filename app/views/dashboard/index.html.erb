@@ -1,10 +1,10 @@
 <h2>vos bookings : <%= "#{current_user.username}" %></h2>
-<div class="d-flex">
+<div class="d-flex justify-content-center">
   <div class="container-resa" data-controller="reservations">
     <% if current_user.cats.present? %>
     <%# bookings recap for the user (owner) %>
       <div class="dashboard-cards">
-        <h3>Demandes de réservation pour vos chats</h3>
+        <h2>Demandes pour vos cats</h2>
         <% if @owner_cat_reservations.any? %>
           <ul class="list">
             <% @owner_cat_reservations.each do |booking| %>
@@ -12,14 +12,14 @@
                 <div class="d-flex justify-content-between">
                   <% if booking.user.photo.attached? %>
                     <%= cl_image_tag booking.user.photo, class: "resa-avatar" %>
+                  <% else %>
+                    <div style="width: 10vh"></div>
                   <% end %>
-                  <div>
-                    <li>Le locataire: <%= booking.user.username %></li>
-                    <%# <li>Le locataire_description: <%= booking.user.description %></li> %>
-                    <%# <li>Le locataire_tel: <%= booking.user.phone_number %></li> %>
-                    <li>Le minou : <%= booking.cat.name %></li>
-                    <%# <li>Date de début :<%= booking.start_date %></li> %>
-                    <%# <li>nombre de demi-journées : <%= booking.number_of_half_days %></li> %>
+                  <div class="resa-info">
+                    <li><span>Le Cat-Lover</span></li>
+                    <li><%= booking.user.username %></li>
+                    <li><span>Votre boule de poil</span></li>
+                    <li><%= booking.cat.name %></li>
                   </div>
                   <%= cl_image_tag booking.cat.photos.first.key, class: "dasboard-photo" %>
                 </div>
@@ -34,7 +34,7 @@
         <% end %>
       </div>
       <div class="dashboard-cards">
-        <h3>Vos réservation de chat</h3>
+        <h2>Vos réservation de chat</h2>
         <% if @user_reservations.any? %>
           <ul class="list">
             <% @user_reservations.each do |booking| %>
@@ -54,7 +54,7 @@
       </div>
     <% else %>
       <div class="dashboard-cards">
-        <h3>Vos réservation de chat</h3>
+        <h2>Vos réservation de chat</h2>
         <% if @user_reservations.any? %>
           <ul class="list">
             <% @user_reservations.each do |booking| %>
@@ -73,7 +73,7 @@
     <% end %>
 
     <div class="dashboard-cards">
-      <h3>Vos chats</h3>
+      <h2>Vos chats</h2>
       <% if @owner_cats %>
         <ul class="list">
           <% @owner_cats.each do |cat| %>

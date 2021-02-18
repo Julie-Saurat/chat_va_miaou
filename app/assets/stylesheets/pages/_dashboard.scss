@@ -7,17 +7,23 @@
 
 .container-resa {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 33% 33% 33%;
   column-gap: 2%;
   row-gap: 2%;
   justify-content: space-evenly;
   margin: 2vh;
+  width: 95%;
 }
 
 .dashboard-cards {
   background: white;
   border-radius: 10px;
   padding: 10px;
+  h2 {
+    font-size: 25px;
+    font-weight: bold;
+    color: $gray;
+  }
 }  
 
 .reservation-card {
@@ -25,10 +31,18 @@
   border-radius: 10px;
   margin: 2vh 2vh;
   list-style-type: none;
+  padding: 1vh;
 }
 
 .list {
   padding: 0;
+}
+
+.resa-info {
+  text-align: center;
+  span {
+    font-weight: 700;
+  }
 }
 
 .dasboard-photo {
@@ -36,6 +50,7 @@
   width: 10vh;
   object-fit: cover;
   border-radius: 5px;
+  margin: 1vh;
 }
 
 .resa-avatar {
@@ -65,9 +80,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: red;
   height: 50%;
   width: 50%;
   border-radius: 5px;
-  box-shadow: 0 0 5px 0px #b6b6b685;
 }
