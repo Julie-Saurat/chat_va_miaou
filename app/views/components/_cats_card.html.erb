@@ -1,6 +1,6 @@
 <!-- card ===================================== -->
       <div class="card-cat" data-city="<%= cat.city %>">
-        <%= cl_image_tag cat.photos.first.key %>
+        <%= cl_image_tag cat.photos.first.key if cat.photos.attached? %>
         <div class="card-cat-infos">
           <div class="card-content">
             <h2><%= cat.name  %></h2>
