@@ -1,11 +1,15 @@
 <div class="cat-show bg-white my-3 p-4 rounded shadow">
-  <div class="row go-back mb-2">
+  <div class="go-back mb-2">
     <i class="fas fa-long-arrow-alt-left align-self-center text-primary mr-2"></i><%= link_to "Retourner aux résultats", request.referer.present? ? request.referer : root_path %>
   </div>
   <div class="row">
     <div class="col-12 col-md-6">
       <div class="cat-photos">
+        <% if !@cat.photos.attached? %>
+        <%= image_tag ["blue-cat.png", "pink-cat.png"].sample, class: "only-photo" %>
+        <% else %>
         <%= cl_image_tag @cat.photos.first.key , class: "main-photo" %>
+        <% end %>
         <% if @cat.photos.count > 1 %>
           <%= cl_image_tag @cat.photos[1].key , class: "second-photo" %>
         <% end %>
@@ -27,7 +31,7 @@
           <div class="col-8">
            <ul>
              <li><i class="fas fa-cat"></i><%= @cat.breed %>, <%= "#{@cat.color}, poil #{@cat.hair_length}"%></li>
-             <li><i class="fas fa-birthday-cake"></i><%= "#{@cat.age} an(s)" %></li>
+             <li><i class="fas fa-birthday-cake"></i><%= "#{@cat.age} an#{"s" if @cat.age > 1}" %></li>
            </ul>
           </div>
           <div class="col-4">
