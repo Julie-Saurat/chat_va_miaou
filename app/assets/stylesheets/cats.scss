@@ -38,3 +38,21 @@
   width: 80%;
   margin: 0 auto;
 }
+
+.booking {
+  width: 80%;
+  margin: 0 auto;
+  padding: 1rem 1rem;
+  border-radius: 15px;
+  box-shadow: (0 0 20px 1px) $lightgray;
+}
+
+.owner-info {
+  width: 80%;
+  margin: 0 auto;
+  padding: 1rem 1rem;
+}
+
+.booking-price {
+  font-weight: 700;
+}
