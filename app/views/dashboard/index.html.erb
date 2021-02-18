@@ -40,14 +40,20 @@
           <ul class="list">
             <% @user_reservations.each do |booking| %>
               <div class="reservation-card">
-                <div>
-                  <li>Le propiétaire : <%= booking.cat.user.username %></li>
-                  <li>Le propiétaire_tel: <%= booking.cat.user.phone_number %></li>
-                  <li>Le minou : <%= booking.cat.name %></li>
-                  <li>Date de début :<%= booking.start_date %></li>
-                  <li>nombre de demi-journées : <%= booking.number_of_half_days %></li>
+                <div class="resa-info">
+                  <%# <li>Le propiétaire_tel: <%= booking.cat.user.phone_number %></li>
+                  <li><span>Le Cat que vous allez lover</span></li>
+                  <li> <%= booking.cat.name %></li>
+                  <li><span>Appartient à</span></li>
+                  <li><%= booking.cat.user.username %></li>
+                  <li><span>Du / Au</span></li>
+                  <li>A COMPLETER !!</li>
+                  <li><span>Total</span></li>
+                  <li>A COMPLETER € !!</li>
                 </div>
-                <%= cl_image_tag booking.cat.photos.first.key, class: "dasboard-photo" %>
+                <div>
+                  <%= cl_image_tag booking.cat.photos.first.key, class: "dasboard-photo" %>
+                </div>
               </div>
             <% end %>
           </ul>
@@ -59,14 +65,17 @@
         <% if @user_reservations.any? %>
           <ul class="list">
             <% @user_reservations.each do |booking| %>
-              <div class="reservation-card">
-                <li>Le propiétaire : <%= booking.cat.user.username %></li>
-                <li>Le propiétaire_tel: <%= booking.cat.user.phone_number %></li>
-                <li>Le minou : <%= booking.cat.name %></li>
-                <li>Date de début :<%= booking.start_date %></li>
-                <li>nombre de demi-journées : <%= booking.number_of_half_days %></li>
-                --------------
-              </div>
+                <div class="resa-info">
+                  <%# <li>Le propiétaire_tel: <%= booking.cat.user.phone_number %></li>
+                  <li><span>Le Cat que vous allez lover</span></li>
+                  <li> <%= booking.cat.name %></li>
+                  <li><span>Appartient à</span></li>
+                  <li><%= booking.cat.user.username %></li>
+                  <li><span>Du / Au</span></li>
+                  <li>A COMPLETER !!</li>
+                  <li><span>Total</span></li>
+                  <li>A COMPLETER € !!</li>
+                </div>
             <% end %>
           </ul>
         <% end %>
@@ -78,22 +87,26 @@
       <% if @owner_cats %>
         <ul class="list">
           <% @owner_cats.each do |cat| %>
-            <div class="presentation-cat-card">
-              <li>les infos du chat</li>
+            <div class="reservation-card">
+              <div class="presentation-cat-card">
+                <%= cl_image_tag cat.photos.first.key, class: "dasboard-photo large" %>
+                <li><span><%= cat.name %></span></li>
+              </div>  
+
               <%= link_to edit_cat_path(cat), class:"btn btn-success", id: "edit-cats" do %>
-                Edit-fontawsone
+                <i class="fas fa-pencil-alt"></i>
               <% end %>
               <%= link_to cat_path(cat), class:"btn btn-outline-success", id: "delete-cats" do %>
-                delete
+                <i class="fas fa-trash-alt"></i>
               <% end %>
             </div>
           <% end %>
         </ul>
-        <div class="home-form my-2">
+        <div class="home-form my-2 add-cat">
           <%= link_to "Ajouter un chat !", new_cat_path, class: "btn btn-success" %>
         </div>
       <% else %>
-        <div class="home-form my-2">
+        <div class="home-form my-2 add-cat">
           <%= link_to "Ajouter un chat !", new_cat_path, class: "btn btn-success" %>
         </div>
       <% end %>

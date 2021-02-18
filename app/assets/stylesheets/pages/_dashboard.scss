@@ -29,11 +29,12 @@
 
 .reservation-card {
   background: rgb(255, 255, 255);
-  box-shadow: 0 0 30px 1px rgb(214, 214, 214);
+  box-shadow: 0 0 30px 1px rgb(224, 224, 224);
   border-radius: 10px;
   margin: 2vh 2vh;
   list-style-type: none;
   padding: 1vh;
+  position: relative;
 }
 
 .list {
@@ -41,7 +42,7 @@
 }
 
 .resa-info {
-  text-align: center;
+  text-align: start;
   span {
     font-weight: 700;
   }
@@ -53,6 +54,11 @@
   object-fit: cover;
   border-radius: 5px;
   margin: 1vh;
+}
+
+.large {
+  height: 15vh;
+  width: 20vh;
 }
 
 .resa-avatar {
@@ -75,7 +81,30 @@
 }
 
 .presentation-cat-card {
-  list-style-type: none;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  span {
+    font-weight: 700;
+    margin: 0 100%;
+  }
+}
+
+#edit-cats {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+}
+
+#delete-cats {
+  position: absolute;
+  bottom: 7px;
+  right: 7px;
+}
+
+.add-cat {
+  display: flex;
+  justify-content: center;
 }
 
 .details-booking {
