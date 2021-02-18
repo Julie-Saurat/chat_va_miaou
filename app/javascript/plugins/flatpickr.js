@@ -10,6 +10,7 @@ const flatPickr = () => {
       dateFormat: "Y-m-d H\\h00",
       minDate: "today",
       time_24hr: true,
+      defaultDate: tomorrow(),
       defaultHour: 8,
       hourIncrement: 6,
       minuteIncrement: 0,
@@ -19,5 +20,13 @@ const flatPickr = () => {
   }
 
 };
+
+const tomorrow = () => {
+  let today = new Date();
+  const tomorrow = today.setHours(32,0,0,0);
+  console.log(tomorrow);
+  console.log(today);
+  return tomorrow;
+}
 
 export { flatPickr };
