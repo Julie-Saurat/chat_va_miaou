@@ -3,6 +3,6 @@
 <%= simple_form_for [@cat, @booking] do |f| %>
   <%= f.input :start_date, label: "A partir de :" %>
   <%= f.input :number_of_half_days, label: "Pour combien de demi-journées ?" %> 
-  <%= f.input :commitment, label: "Je m'engage fermement à payer si le propriétaire de #{@cat.name} accepte ma demande" , boolean_style: :inline %>
+  <%= f.input :commitment, label: "OK pour le paiement sur place en arrivant ?" , boolean_style: :inline %>
   <%= f.button :submit, value: "A moi les câlins !", class: "btn btn-primary d-block mx-auto" %>
 <% end %>

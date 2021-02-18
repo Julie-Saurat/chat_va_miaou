@@ -7,8 +7,8 @@ class BookingsController < ApplicationController
     authorize @booking
     @booking.cat = @cat
     @booking.user = current_user
-    unless @booking.commitment  
-      flash[:alert] = "Vous n'avez indiqué votre accord de paiement"
+    unless @booking.commitment
+      flash[:alert] = "D'accord pour le paiement sur place à l'arrivée ?"
       render "cats/show" and return
     end 
     if        
