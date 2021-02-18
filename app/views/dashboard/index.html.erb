@@ -1,10 +1,9 @@
-<h2>vos bookings : <%= "#{current_user.username}" %></h2>
 <div class="d-flex justify-content-center">
   <div class="container-resa" data-controller="reservations">
     <% if current_user.cats.present? %>
     <%# bookings recap for the user (owner) %>
       <div class="dashboard-cards">
-        <h2>Demandes pour vos cats</h2>
+        <h2>Demandes pour vos Cats</h2>
         <% if @owner_cat_reservations.any? %>
           <ul class="list">
             <% @owner_cat_reservations.each do |booking| %>
@@ -18,14 +17,16 @@
                   <div class="resa-info">
                     <li><span>Le Cat-Lover</span></li>
                     <li><%= booking.user.username %></li>
-                    <li><span>Votre boule de poil</span></li>
+                    <li><span>Votre Cat</span></li>
                     <li><%= booking.cat.name %></li>
                   </div>
                   <%= cl_image_tag booking.cat.photos.first.key, class: "dasboard-photo" %>
                 </div>
-                <button type="button" class="btn btn-primary" id="open-modal" data-id=<%=booking.id%> data-reservations-target="button" data-action="click->reservations#show">
-                  <i class="fas fa-plus"></i>
-                </button>
+                <div class="d-flex justify-content-between">
+                  <button type="button" class="btn btn-primary" id="open-modal" data-id=<%=booking.id%> data-reservations-target="button" data-action="click->reservations#show">
+                    <i class="fas fa-plus"></i>
+                  </button>
+                </div>
               </div>
               <div class="details-booking" data-reservations-target="description">
               </div>
@@ -34,7 +35,7 @@
         <% end %>
       </div>
       <div class="dashboard-cards">
-        <h2>Vos réservation de chat</h2>
+        <h2>Vos réservations de Cat</h2>
         <% if @user_reservations.any? %>
           <ul class="list">
             <% @user_reservations.each do |booking| %>
@@ -73,7 +74,7 @@
     <% end %>
 
     <div class="dashboard-cards">
-      <h2>Vos chats</h2>
+      <h2>Vos Cats</h2>
       <% if @owner_cats %>
         <ul class="list">
           <% @owner_cats.each do |cat| %>
