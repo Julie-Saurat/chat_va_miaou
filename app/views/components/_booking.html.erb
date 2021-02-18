@@ -1,8 +1,8 @@
-<p>Passez du temps avec <%= @cat.name %>!</p>
-
+<h5 class="text-center">Passez du temps avec <%= @cat.name %> !</h5>
 <%= simple_form_for [@cat, @booking] do |f| %>
-  <%= f.input :start_date, label: "A partir de :" %>
-  <%= f.input :number_of_half_days, label: "Pour combien de demi-journées ?" %> 
+  <%= f.input :start_date, as: :string, label: "A partir de :", input_html: {id: "start-date"} %>
+  <%= f.input :number_of_half_days, label: "Pour combien de demi-journées ?", input_html: {value: 1, min: 1, max: 14, id: "number-of-half-days"} %>
   <%= f.input :commitment, label: "Je m'engage fermement à payer si le propriétaire de #{@cat.name} accepte ma demande" , boolean_style: :inline %>
+  <p class="booking-price">Total de la commande : <span id="booking-total"></span> </p>
   <%= f.button :submit, value: "A moi les câlins !", class: "btn btn-primary d-block mx-auto" %>
 <% end %>

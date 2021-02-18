@@ -33,6 +33,10 @@ class CatsController < ApplicationController
 
   private
 
+  def half_days_to_seconds(half_days)
+    half_days * 43200
+  end
+
   def set_cat
     @cat = Cat.find(params[:id])
   end
