@@ -5,11 +5,6 @@
   }
 }
 
-.star {
-  display: inline;
-  font-size: 1rem;
-}
-
 .cat-photos {
   position: relative;
 
@@ -37,6 +32,9 @@
 .cat-show {
   width: 80%;
   margin: 0 auto;
+  h3 {
+    text-align: left;
+  }
 }
 
 .booking {
