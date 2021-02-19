@@ -56,7 +56,7 @@
     <div class="dashboard-cards-cats flex-column">
       <h2>Vos chats</h2>
       <% if @owner_cats %>
-        <ul class="list d-flex text-center">
+        <ul class="list d-flex text-center flex-wrap">
           <% @owner_cats.each do |cat| %>
             <%= link_to cat_path(cat) do %>
               <div class="my-cat-card">
