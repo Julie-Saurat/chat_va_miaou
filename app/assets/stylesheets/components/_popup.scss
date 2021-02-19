@@ -3,9 +3,68 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 50%;
-  width: 50%;
+  height: 60%;
+  width: 36%;
   border-radius: 5px;
   z-index: 1;
-  background-color: red;
+  background-color: white;
+  box-shadow: 0 0 20px #66b09f61;
+  padding: 2vh;
+}
+
+.modal-card {
+  position: relative;
+}
+
+p {
+  span {
+    font-weight: 700;
+  }
+}
+
+.cat-image {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 20vh;
+}
+
+img.dashboard-photo.modal-cat {
+  width: 100%;
+  height: 100%;
+}
+
+.cat-infos-title {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 6vh;
+  margin: 1vh 0 3vh 0;
+}
+
+.cat-details-modal {
+  /* display: flex; */
+  margin: 3vh;
+}
+
+.confirm-btn {
+  display: flex;
+  justify-content: center;
+  margin: 0 182px;
+  align-items: baseline;
+}
+
+.closing {
+}
+
+#closing-btn {
+  position: absolute;
+  top: -21px;
+  right: -22px;
+  background-color: #66B09F;
+  text-align: center;
+  border-radius: 50%;
+  border: none;
+  height: 25px;
+  width: 25px;
 }

@@ -20,7 +20,7 @@
                     <li><span>Votre Cat</span></li>
                     <li><%= booking.cat.name %></li>
                   </div>
-                  <%= cl_image_tag booking.cat.photos.first.key, class: "dasboard-photo" %>
+                  <%= cl_image_tag booking.cat.photos.first.key, class: "dashboard-photo" %>
                 </div>
                   <i class="fas fa-plus" id="open-modal" data-id=<%=booking.id%> data-action="click->bookings#show"></i>
               </div>
@@ -48,7 +48,7 @@
                   <li>A COMPLETER € !!</li>
                 </div>
                 <div>
-                  <%= cl_image_tag booking.cat.photos.first.key, class: "dasboard-photo" %>
+                  <%= cl_image_tag booking.cat.photos.first.key, class: "dashboard-photo" %>
                 </div>
               </div>
             <% end %>
@@ -86,7 +86,7 @@
             <div class="reservation-card">
               <div class="presentation-cat-card">
                 <% if cat.photos.attached? %>
-                <%= cl_image_tag cat.photos.first.key, class: "dasboard-photo large" %>
+                <%= cl_image_tag cat.photos.first.key, class: "dashboard-photo large" %>
                 <% end %>
                 <li><span><%= cat.name %></span></li>
               </div>

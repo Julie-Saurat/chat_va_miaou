@@ -1,11 +1,29 @@
 <div class="popup" data-controller="bookings" data-bookings-target="modal">
-  <h2>Hello</h2>
-  <p>Le locataire_description: <%= booking.user.description %></p>
-  <p>Le locataire_tel: <%= booking.user.phone_number %></p>
-  <p>Date de début :<%= booking.start_date %></p>
-  <p>nombre de demi-journées : <%= booking.number_of_half_days %></p>
-  <%= cl_image_tag booking.cat.photos.first.key, class: "dasboard-photo" %>
-  <button class="btn btn-primary" data-action="click->bookings#hideModal">
-    X
-  </button>
+  <div class="modal-card">
+    <div class="cat-image">
+      <%= cl_image_tag booking.cat.photos.first.key, class: "dashboard-photo modal-cat" %>
+    </div>
+    <div class="cat-infos-title">
+      <h2><%= booking.cat.name %></h2>
+    </div>
+    <div class="cat-details-modal">
+      <div class="d-flex justify-content-between">
+        <p><span> <i class="fas fa-grin-hearts"></i> </span><%= booking.user.description %></p>
+        <p><span> <i class="fas fa-table"></i> </span><%= booking.start_date %></p>
+      </div>
+      <div class="d-flex justify-content-between">
+        <p><span> <i class="fas fa-phone"></i> </span><%= booking.user.phone_number %></p>
+        <p><span> <i class="fas fa-euro-sign"></i> </span><%= booking.cat.price_per_half_day * booking.number_of_half_days %> €</p>
+      </div>
+    </div>
+    <div class="closing">
+      <button id="closing-btn" data-action="click->bookings#hideModal">
+      <%# <button class="btn btn-outline-primary" id="closing-btn" data-action="click->bookings#hideModal"> %>
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="confirm-btn btn btn-primary">
+      <i class="fas fa-check"></i> Confirmer
+    </div>
+  </div>
 </div>
