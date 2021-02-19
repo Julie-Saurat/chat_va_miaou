@@ -42,6 +42,7 @@ document.addEventListener('turbolinks:load', () => {
   flatPickr();
   updatePrice();
   switchPhotos();
+  changeBookingMessage();
 });
 
 import "controllers"
