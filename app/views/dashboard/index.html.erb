@@ -21,7 +21,11 @@
                   </div>
                   <%= cl_image_tag booking.cat.photos.first.key, class: "dashboard-photo" %>
                 </div>
-                  <i class="fas fa-plus" id="open-modal" data-id=<%=booking.id%> data-action="click->bookings#show"></i>
+                <% if (0..1).to_a.sample == 1 %>
+                  <i class="fas fa-check bg-primary" id="open-modal" data-id=<%=booking.id%> data-action="click->bookings#show"></i>
+                <% else %>
+                 <i class="fas fa-question bg-danger" id="open-modal" data-id=<%=booking.id%> data-action="click->bookings#show"></i>
+                <% end %>
               </div>
               <div data-bookings-target="description">
               </div>
@@ -77,11 +81,11 @@
           <% end %>
         </ul>
         <div class="home-form my-2 add-cat">
-          <%= link_to "Ajouter un chat !", new_cat_path, class: "btn btn-success" %>
+          <%= link_to "Ajouter un chat !", new_cat_path, class: "btn btn-primary" %>
         </div>
       <% else %>
         <div class="home-form my-2 add-cat">
-          <%= link_to "Ajouter un chat !", new_cat_path, class: "btn btn-success" %>
+          <%= link_to "Ajouter un chat !", new_cat_path, class: "btn btn-primary" %>
         </div>
       <% end %>
     </div>
