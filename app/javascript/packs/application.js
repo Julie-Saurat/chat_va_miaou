@@ -42,4 +42,5 @@ document.addEventListener('turbolinks:load', () => {
   updatePrice();
 });
 
-changeBookingMessage();
+import "controllers"
+
