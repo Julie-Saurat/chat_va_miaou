@@ -8,7 +8,7 @@ class CatsController < ApplicationController
   end
 
   def index
-    @cats = policy_scope(Cat)
+    @cats = policy_scope(Cat).order(created_at: :desc)
 
     @markers = @cats.geocoded.map do |cat|
       {
