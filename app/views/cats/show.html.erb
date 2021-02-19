@@ -61,7 +61,7 @@
           <div id="btn-edit">
             <div class="d-flex justify-content-around">
               <p><i class="fas fa-pen"></i><%= link_to "Modifier la fiche", edit_cat_path(@cat) %></p>
-              <p><i class="far fa-trash-alt"></i><%= link_to "Supprimer le chat", cat_path(@cat), method: :delete %></p>
+              <p><i class="far fa-trash-alt"></i><%= link_to "Supprimer le chat", cat_path(@cat), method: :delete, data: { confirm: "Voulez-vous vraiment supprimer ce chat?" } %></p>
             </div>
           </div>
         <% else %>
