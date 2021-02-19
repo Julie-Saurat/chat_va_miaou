@@ -1,8 +1,7 @@
-const mainPhoto = document.querySelector('.main-photo');
-console.log(mainPhoto);
-const secondPhoto = document.querySelector('.second-photo');
 
 const switchPhotos = () => {
+  const mainPhoto = document.querySelector('.main-photo');
+  const secondPhoto = document.querySelector('.second-photo');
   if (mainPhoto && secondPhoto) {
     [mainPhoto, secondPhoto].forEach((item) => {
       item.addEventListener('click', (event) => {
