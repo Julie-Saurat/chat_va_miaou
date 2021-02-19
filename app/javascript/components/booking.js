@@ -16,10 +16,10 @@
   }
 };
 
-const priceElmt = document.getElementById('price')
-const daysElmt = document.getElementById("number-of-half-days");
 
 const totalPrice = () => {
+  const priceElmt = document.getElementById('price')
+  const daysElmt = document.getElementById("number-of-half-days");
   const price = priceElmt.dataset.pricePerHalfDay;
   const days = daysElmt.value;
   return price * days;
@@ -27,6 +27,7 @@ const totalPrice = () => {
 
 const updatePrice = () => {
   const priceDiv = document.getElementById("booking-total");
+  const daysElmt = document.getElementById("number-of-half-days");
   if (priceDiv) {
     priceDiv.innerText = `${totalPrice()}€`;
     daysElmt.addEventListener("change", (event) => {
