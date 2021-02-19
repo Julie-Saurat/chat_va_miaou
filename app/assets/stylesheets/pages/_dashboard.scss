@@ -27,6 +27,19 @@
   }
 }
 
+.dashboard-cards-cats {
+  background: white;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  h2 {
+    font-size: 25px;
+    font-weight: bold;
+    color: $gray;
+    margin-bottom: 4vh;
+  }
+}
+
 .reservation-card {
   background: rgb(255, 255, 255);
   box-shadow: 0 0 30px 1px rgb(224, 224, 224);
@@ -35,7 +48,20 @@
   list-style-type: none;
   padding: 1vh;
   position: relative;
+  display: flex;
 }
+
+.my-cat-card {
+  background: rgb(255, 255, 255);
+  box-shadow: 0 0 30px 1px rgb(224, 224, 224);
+  border-radius: 10px;
+  margin: 2vh 2vh;
+  list-style-type: none;
+  padding: 1vh;
+  position: relative;
+  display: block;
+}
+
 
 .list {
   padding: 0;
@@ -48,7 +74,7 @@
   }
 }
 
-.dasboard-photo {
+.dashboard-photo {
   height: 10vh;
   width: 10vh;
   object-fit: cover;
@@ -58,6 +84,11 @@
 
 .large {
   height: 15vh;
+  width: 20vh;
+}
+
+.extra-large {
+  height: 20vh;
   width: 20vh;
 }
 
@@ -74,6 +105,13 @@
   position: absolute;
   bottom: 5px;
   right: 5px;
+  background-color: #009688;
+  padding: 5px 5px;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  text-align: center;
+  color: white;
 }
 
 .card-box {
@@ -84,25 +122,20 @@
 }
 
 .presentation-cat-card {
-  display: flex;
+  display: block;
+  width: 100%;
   justify-content: end;
   align-items: center;
   span {
     font-weight: 700;
-    margin: 0 100%;
+
   }
 }
 
 #edit-cats {
-  position: absolute;
-  top: 7px;
-  right: 7px;
 }
 
 #delete-cats {
-  position: absolute;
-  bottom: 7px;
-  right: 7px;
 }
 
 .add-cat {
