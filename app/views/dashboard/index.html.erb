@@ -1,5 +1,5 @@
 <div class="d-flex justify-content-center">
-  <div class="container-resa" data-controller="reservations">
+  <div class="container-resa" data-controller="bookings">
     <% if current_user.cats.present? %>
     <%# bookings recap for the user (owner) %>
       <div class="dashboard-cards">
@@ -23,12 +23,12 @@
                   <%= cl_image_tag booking.cat.photos.first.key, class: "dasboard-photo" %>
                 </div>
                 <div class="d-flex justify-content-between">
-                  <button type="button" class="btn btn-primary" id="open-modal" data-id=<%=booking.id%> data-reservations-target="button" data-action="click->reservations#show">
+                  <button type="button" class="btn btn-primary" id="open-modal" data-id=<%=booking.id%> data-action="click->bookings#show">
                     <i class="fas fa-plus"></i>
                   </button>
                 </div>
               </div>
-              <div class="details-booking" data-reservations-target="description">
+              <div data-bookings-target="description">
               </div>
             <% end %>
           </ul>
