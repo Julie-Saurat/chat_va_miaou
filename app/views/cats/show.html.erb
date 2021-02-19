@@ -1,20 +1,22 @@
 <div class="cat-show bg-white my-3 p-4 rounded shadow">
-  <div class="row go-back mb-2">
+  <div class="go-back mb-2">
     <i class="fas fa-long-arrow-alt-left align-self-center text-primary mr-2"></i><%= link_to "Retourner aux résultats", request.referer.present? ? request.referer : root_path %>
   </div>
   <div class="row">
-    <div class="col-12 col-md-6">
+    <div class="col-12 col-md-7">
       <div class="cat-photos">
+        <% if !@cat.photos.attached? %>
+        <%= image_tag ["blue-cat.png", "pink-cat.png"].sample, class: "only-photo" %>
+        <% else %>
         <%= cl_image_tag @cat.photos.first.key , class: "main-photo" %>
+        <% end %>
         <% if @cat.photos.count > 1 %>
           <%= cl_image_tag @cat.photos[1].key , class: "second-photo" %>
         <% end %>
       </div>
       <div class="row mb-2">
-        <div class="col-8">
+        <div class="col d-flex justify-content-between">
           <h3><strong><%= "#{@cat.name} " %></strong><%= "(#{@cat.tag})" %></h3>
-        </div>
-        <div class="col-4">
           <div class="paw">
             <i class="fas fa-paw"></i>
             <i class="fas fa-paw"></i>
@@ -26,28 +28,29 @@
       </div>
       <div class="cat-info">
         <div class="row">
-          <div class="col">
+          <div class="col-7">
            <ul>
-             <li><strong>Sexe : </strong><%= @cat.gender %></li>
-             <li><strong>Age : </strong><%= "#{@cat.age} an(s)" %></li>
-             <li><strong>Pelage : </strong><%= "#{@cat.color}, poil #{@cat.hair_length}"%></li>
+             <li><i class="fas fa-cat"></i><%= @cat.breed %>, <%= "#{@cat.color}, poil #{@cat.hair_length}"%></li>
+             <li><i class="fas fa-birthday-cake"></i><%= "#{@cat.age} an#{"s" if @cat.age > 1}" %></li>
            </ul>
           </div>
-          <div class="col">
+          <div class="col-5">
            <ul>
-             <li><strong>Castré : </strong><%= @cat.neutered == true ? "oui" : "non" %></li>
-             <li><strong>Régime : </strong><%= @cat.diet %></li>
-             <li><strong>Race : </strong><%= @cat.breed %></li>
+             <li>
+              <i class="fas fa-<%= @cat.gender == "femelle" ? "venus" : "mars" %>"></i>
+              <%= @cat.neutered == true ? "castré" : "non castré" %><%= "e" if @cat.gender == "femelle" %>
+            </li>
+             <li><i class="fas fa-utensils"></i><%= @cat.diet %></li>
            </ul>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-12 col-md-6">
+    <div class="col-12 col-md-5">
       <div class="owner-info">
-        <p class="mb-0"><i class="fas fa-user"></i> Ce chat appartient à <%= @cat.user.first_name %></p>
-        <p class="mb-0"><i class="fas fa-map-marker-alt"></i> Vous pourrez le récupérer à <%= @cat.city %></p>
-        <p class="mb-0" id="price" data-price-per-half-day="<%= @cat.price_per_half_day %>" ><i class="fas fa-euro-sign"></i> <%= @cat.price_per_half_day %> / demi-journée</p>
+        <p class="mb-0"><i class="fas fa-user"></i>Ce chat appartient à <%= @cat.user.first_name %></p>
+        <p class="mb-0"><i class="fas fa-map-marker-alt"></i>Vous pourrez le récupérer à <%= @cat.city %></p>
+        <p class="mb-0" id="price" data-price-per-half-day="<%= @cat.price_per_half_day %>" ><i class="fas fa-euro-sign"></i><%= @cat.price_per_half_day %> / demi-journée</p>
       </div>
       <div class="booking mt-2">
         <% if policy(@cat).edit?  %>
