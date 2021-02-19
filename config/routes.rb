@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create]
   end
     
-  resources :bookings, only: [:index, :create] do
+  resources :bookings, only: [:index, :create, :show] do
     collection do
       patch :validate
     end
@@ -14,5 +14,7 @@ Rails.application.routes.draw do
   end
  
   get "/dashboard", to: "dashboard#index"
+
+  # get "/reservations/:id", to: "reservations#show"
 
 end

@@ -24,8 +24,6 @@ const flatPickr = () => {
 const tomorrow = () => {
   let today = new Date();
   const tomorrow = today.setHours(32,0,0,0);
-  console.log(tomorrow);
-  console.log(today);
   return tomorrow;
 }
 

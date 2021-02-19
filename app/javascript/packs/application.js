@@ -28,8 +28,9 @@ import { searchCards } from '../components/search';
 import { initMapbox } from '../plugins/init_mapbox';
 import { flatPickr } from "../plugins/flatpickr"
 import { updatePrice } from "../components/booking";
+import { switchPhotos } from "../components/photo_switch";
 // Internal imports, e.g:
-// import { initSelect2 } from '../components/init_select2';
+//<import { initSelect2 } from '../components/init_select2';
 
 import {changeBookingMessage} from "../components/booking"
 
@@ -40,6 +41,8 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
   flatPickr();
   updatePrice();
+  switchPhotos();
 });
 
-changeBookingMessage();
+import "controllers"
+

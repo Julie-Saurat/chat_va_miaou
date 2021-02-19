@@ -1,15 +1,19 @@
-.cat-info .fa-paw {
+.cat-info .fas {
   font-size: 1.3rem;
-  i {
-    margin: 0 -3px;
+}
+
+i.fas.fa-paw {
+  margin-right: 0;
+  margin: 0 -2px;
+}
+
+.cat-info {
+  ul {
+    list-style: none;
+    padding: 0 0;
+    text-transform: capitalize;
   }
 }
-
-.star {
-  display: inline;
-  font-size: 1rem;
-}
-
 .cat-photos {
   position: relative;
 
@@ -30,6 +34,13 @@
   margin-bottom: 3vh;
 }
 
+.only-photo {
+  height: 40vh;
+  width: 100%;
+  object-fit: cover;
+  margin-bottom: 3vh;
+}
+
 .map-container.col-4 {
   padding-left: 0px;
 
@@ -38,6 +49,9 @@
 .cat-show {
   width: 80%;
   margin: 0 auto;
+  h3 {
+    text-align: left;
+  }
 }
 
 .research-bar {
@@ -48,17 +62,17 @@
 }
 
 .booking {
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
   padding: 1rem 1rem;
   border-radius: 15px;
-  box-shadow: (0 0 20px 1px) $lightgray;
+  box-shadow: (0 0 20px 1px)  #BBC4D1;
 }
 
 .owner-info {
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
-  padding: 1rem 1rem;
+  padding: 0 1rem;
 }
 
 .booking-price {
