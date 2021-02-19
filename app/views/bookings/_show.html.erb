@@ -4,7 +4,7 @@
   <p>Le locataire_tel: <%= booking.user.phone_number %></p>
   <p>Date de début :<%= booking.start_date %></p>
   <p>nombre de demi-journées : <%= booking.number_of_half_days %></p>
-  <%= cl_image_tag booking.cat.photos.first.key, class: "dasboard-photo" %>
+  <%= cl_image_tag booking.cat.photos.first.key, class: "dashboard-photo" %>
   <button class="btn btn-primary" data-action="click->bookings#hideModal">
     X
   </button>

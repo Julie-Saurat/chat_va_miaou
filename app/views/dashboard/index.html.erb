@@ -3,7 +3,7 @@
     <% if current_user.cats.present? %>
     <%# bookings recap for the user (owner) %>
       <div class="dashboard-cards">
-        <h2>Demandes pour vos Cats</h2>
+        <h2>Demandes pour vos chats</h2>
         <% if @owner_cat_reservations.any? %>
           <ul class="list">
             <% @owner_cat_reservations.each do |booking| %>
@@ -15,12 +15,11 @@
                     <div style="width: 10vh"></div>
                   <% end %>
                   <div class="resa-info">
-                    <li><span>Le Cat-Lover</span></li>
-                    <li><%= booking.user.username %></li>
-                    <li><span>Votre Cat</span></li>
-                    <li><%= booking.cat.name %></li>
+                    <li><span><%= booking.user.username %></span>  va lover <span><%= booking.cat.name %></span></li>
+                    <li>Le <span><%= booking.start_date.strftime("%d/%m/%Y") %> </span>pour <%= booking.number_of_half_days.to_f / 2 %> jour(s)</li>
+                    <li>Total de la commande : <span> <%= booking.cat.price_per_half_day * booking.number_of_half_days %>€ </span></li>
                   </div>
-                  <%= cl_image_tag booking.cat.photos.first.key, class: "dasboard-photo" %>
+                  <%= cl_image_tag booking.cat.photos.first.key, class: "dashboard-photo" %>
                 </div>
                   <i class="fas fa-plus" id="open-modal" data-id=<%=booking.id%> data-action="click->bookings#show"></i>
               </div>
@@ -31,73 +30,50 @@
         <% end %>
       </div>
       <div class="dashboard-cards">
-        <h2>Vos réservations de Cat</h2>
+        <h2>Vos réservations de chat</h2>
         <% if @user_reservations.any? %>
           <ul class="list">
             <% @user_reservations.each do |booking| %>
               <div class="reservation-card">
+                <%= cl_image_tag booking.cat.photos.first.key, class: "dashboard-photo" %>
                 <div class="resa-info">
                   <%# <li>Le propiétaire_tel: <%= booking.cat.user.phone_number %></li>
-                  <li><span>Le Cat que vous allez lover</span></li>
-                  <li> <%= booking.cat.name %></li>
-                  <li><span>Appartient à</span></li>
-                  <li><%= booking.cat.user.username %></li>
-                  <li><span>Du / Au</span></li>
-                  <li>A COMPLETER !!</li>
-                  <li><span>Total</span></li>
-                  <li>A COMPLETER € !!</li>
-                </div>
-                <div>
-                  <%= cl_image_tag booking.cat.photos.first.key, class: "dasboard-photo" %>
+                  <li>Vous allez lover <span><%= booking.cat.name %></span>  (appartient à <%= booking.cat.user.username %>)</li>
+                  <li>Le <span><%= booking.start_date.strftime("%d/%m/%Y") %> </span>pour <%= booking.number_of_half_days.to_f / 2 %> jour(s)</li>
+                  <li>Total de la commande : <span> <%= booking.cat.price_per_half_day * booking.number_of_half_days %>€ </span></li>
                 </div>
               </div>
-            <% end %>
-          </ul>
-        <% end %>
-      </div>
-    <% else %>
-      <div class="dashboard-cards">
-        <h2>Vos réservation de chat</h2>
-        <% if @user_reservations.any? %>
-          <ul class="list">
-            <% @user_reservations.each do |booking| %>
-                <div class="resa-info">
-                  <%# <li>Le propiétaire_tel: <%= booking.cat.user.phone_number %></li>
-                  <li><span>Le Cat que vous allez lover</span></li>
-                  <li> <%= booking.cat.name %></li>
-                  <li><span>Appartient à</span></li>
-                  <li><%= booking.cat.user.username %></li>
-                  <li><span>Du / Au</span></li>
-                  <li>A COMPLETER !!</li>
-                  <li><span>Total</span></li>
-                  <li>A COMPLETER € !!</li>
-                </div>
             <% end %>
           </ul>
         <% end %>
       </div>
     <% end %>
 
-    <div class="dashboard-cards">
-      <h2>Vos Cats</h2>
+    <div class="dashboard-cards-cats flex-column">
+      <h2>Vos chats</h2>
       <% if @owner_cats %>
-        <ul class="list">
+        <ul class="list d-flex text-center">
           <% @owner_cats.each do |cat| %>
-            <div class="reservation-card">
-              <div class="presentation-cat-card">
-                <% if cat.photos.attached? %>
-                <%= cl_image_tag cat.photos.first.key, class: "dasboard-photo large" %>
-                <% end %>
-                <li><span><%= cat.name %></span></li>
+            <%= link_to cat_path(cat) do %>
+              <div class="my-cat-card">
+                  <% if cat.photos.attached? %>
+                  <%= cl_image_tag cat.photos.first.key, class: "dashboard-photo extra-large" %>
+                  <% end %>
+                <div class="presentation-cat-card">
+                  <div>
+                    <p><span><%= cat.name %></span></p>
+                  </div>
+                  <div class="d-block">
+                    <%= link_to edit_cat_path(cat), id: "edit-cats", class: "d-inline" do %>
+                      <i class="fas fa-pencil-alt d-inline"></i>
+                    <% end %>
+                    <%= link_to cat_path(cat), id: "delete-cats", class: "d-inline" do %>
+                      <i class="fas fa-trash-alt"></i>
+                    <% end %>
+                  </div>
+                </div>
               </div>
-
-              <%= link_to edit_cat_path(cat), class:"btn btn-success", id: "edit-cats" do %>
-                <i class="fas fa-pencil-alt"></i>
-              <% end %>
-              <%= link_to cat_path(cat), class:"btn btn-outline-success", id: "delete-cats" do %>
-                <i class="fas fa-trash-alt"></i>
-              <% end %>
-            </div>
+            <% end %>
           <% end %>
         </ul>
         <div class="home-form my-2 add-cat">
