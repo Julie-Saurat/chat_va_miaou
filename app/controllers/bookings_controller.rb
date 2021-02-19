@@ -18,7 +18,13 @@ class BookingsController < ApplicationController
     else
       render "cats/show"
     end
-end
+  end
+
+  def show
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    render json: { html: render_to_string( partial: "bookings/show", locals: { booking: @booking }) }
+  end
 
   def validate
   end

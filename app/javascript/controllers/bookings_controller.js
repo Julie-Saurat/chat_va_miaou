@@ -2,10 +2,10 @@ import { Controller } from "stimulus";
 import Rails from "@rails/ujs";
 
 export default class extends Controller {
-  static targets = ["button", "description"]
+  static targets = ["description", "modal"]
 
   connect() {
-    console.log(this.buttonTarget);
+    console.log
   }
 
   show(event) {
@@ -13,7 +13,7 @@ export default class extends Controller {
 
     Rails.ajax({
       type: "get",
-      url: `/reservations/${idBooking}`,
+      url: `/bookings/${idBooking}`,
       success: this.display.bind(this),
       error: (data) => { console.log(data) }
     })
@@ -21,6 +21,9 @@ export default class extends Controller {
 
   display(data) {
     this.descriptionTarget.innerHTML = data.html;
-    console.log(data);
+  }
+
+  hideModal() {
+    this.modalTarget.classList.add("d-none");
   }
 }
