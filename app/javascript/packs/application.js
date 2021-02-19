@@ -44,4 +44,5 @@ document.addEventListener('turbolinks:load', () => {
   switchPhotos();
 });
 
-changeBookingMessage();
+import "controllers"
+

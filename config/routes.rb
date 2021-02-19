@@ -15,4 +15,6 @@ Rails.application.routes.draw do
  
   get "/dashboard", to: "dashboard#index"
 
+  get "/reservations/:id", to: "reservations#show"
+
 end

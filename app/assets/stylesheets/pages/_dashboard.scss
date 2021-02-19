@@ -1,12 +1,118 @@
-.pending {
-  background-color: $pink;
-  margin: 10% 20%;
+.dashboard-container {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
+  align-items: flex-start;
+  background-color: #ffffff00;
+}
+
+.container-resa {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  column-gap: 2%;
+  row-gap: 2%;
+  justify-content: space-evenly;
+  margin: 2vh;
+  width: 95%;
+}
+
+.dashboard-cards {
+  background: white;
+  border-radius: 10px;
+  padding: 10px;
+  h2 {
+    font-size: 25px;
+    font-weight: bold;
+    color: $gray;
+    margin-bottom: 4vh;
+  }
+}  
+
+.reservation-card {
+  background: rgb(255, 255, 255);
+  box-shadow: 0 0 30px 1px rgb(224, 224, 224);
+  border-radius: 10px;
+  margin: 2vh 2vh;
+  list-style-type: none;
+  padding: 1vh;
+  position: relative;
+}
+
+.list {
+  padding: 0;
+}
+
+.resa-info {
+  text-align: start;
+  span {
+    font-weight: 700;
+  }
+}
+
+.dasboard-photo {
+  height: 10vh;
+  width: 10vh;
+  object-fit: cover;
+  border-radius: 5px;
+  margin: 1vh;
+}
+
+.large {
+  height: 15vh;
+  width: 20vh;
+}
+
+.resa-avatar {
+  height: 10vh;
+  width: 10vh;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+#open-modal {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.card-box {
+  border-radius: 5px;
+  background-color: white;
+  padding: 2%;
+  margin-bottom: 5%;
+}
+
+.presentation-cat-card {
+  display: flex;
+  justify-content: end;
   align-items: center;
-  padding: 5%;
-  color: white;
-  line-height: 5;
+  span {
+    font-weight: 700;
+    margin: 0 100%;
+  }
+}
+
+#edit-cats {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+}
+
+#delete-cats {
+  position: absolute;
+  bottom: 7px;
+  right: 7px;
+}
+
+.add-cat {
+  display: flex;
+  justify-content: center;
+}
+
+.details-booking {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 50%;
+  width: 50%;
   border-radius: 5px;
 }
