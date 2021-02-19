@@ -6,7 +6,6 @@
    [check, element].forEach((item) => {
     item.addEventListener('change', (event) => {
       const message = document.getElementById("hour");
-      // if (check.value === 1)
       if (check.checked) {
         message.innerText = `Vous pourrez arriver dès ${element.value.split(' ')[1]}.`;
       } else {
