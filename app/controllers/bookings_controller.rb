@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
 
-  
+
   def create
     @cat = Cat.find(params[:cat_id])
     @booking = Booking.new(booking_params)
@@ -27,8 +27,10 @@ class BookingsController < ApplicationController
   end
 
   def validate
+    @booking = Booking.find(params[:id])
+    @booking.commitment(booking_params)
   end
-  
+
 private
 
   def booking_params
